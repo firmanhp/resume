@@ -1,0 +1,271 @@
+%-------------------------
+% Resume in Latex
+% Author : Sourabh Bajaj
+% Website: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[pdftex]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{ifthen}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.375in}
+\addtolength{\evensidemargin}{-0.375in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item\small{
+  \ifthenelse{\equal{#1}{}}{
+    {#2}}{\textbf{#1}{: #2}}
+  \vspace{-1pt}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\ifthenelse{\equal{#1}{}}{}{\item}
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \ifthenelse{\equal{#1}{}}{}{\textbf{#1} & #2 \\}
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-3pt}}
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING-----------------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{\href{https://firmanhp.com/blog/}{\Large Firman Hadi Prayoga}} & Email : firmanhp.91 at gmail dot com\\
+  % \href{https://firmanhp.com/blog}{https://firmanhp.com/blog} \\
+\end{tabular*}
+
+%-----------EXPERIENCE-----------------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Google}{New Taipei City, Taiwan}
+      {Senior Software Engineer, Pixel Camera System Software}{Feb 2021 - Present}
+      \resumeItemListStart
+        \resumeItem{Technologies}
+          {Android Native, Linux kernel, Perfetto, perf/simpleperf, C++, Java, Soong, Bazel,
+           I$^2$C/I$^3$C}
+        % \resumeItem{}
+        %   {Recognized internally for proactively supporting team's code quality by conducting
+        %    thorough design reviews and promoting adherence to the company's C++ programming
+        %    best practices. Mentored several newcomers on the development workflow.}
+        \resumeItem{}
+          {Collaborated with cross-functional teams to deliver multiple features in
+          unified Camera HAL for Tensor SoCs:
+            \resumeItemListStart
+            \resumeItem{}{Image Stabilization (Implemented hardware lens position data sampling to improve the algorithm's accuracy.)}
+            \resumeItem{}{Super Res Zoom (worked on calibration data infrastructure and image stabilization experience on high zoom),}
+            \resumeItem{}{Face Unblur (Reduced CPU power usage by 100mW, extending battery life),}
+            \resumeItem{}{Camera2 Settings override API (boosted the zoom experience latency by 1 frame = 33.3ms),}
+            \resumeItem{}{Third party camera support (improved the JPEG compression time from 80ms to 40ms),}
+            \resumeItem{}{and many other features TBA.}
+            \resumeItemListEnd
+           }
+        \resumeItem{}
+          {Was responsible for the software driver design, Linux device tree definitions, power sequences,
+           for early bring-up of camera hardware modules for Pixel devices, including experimental devices.}
+        \resumeItem{}
+           {Directed cross-layer software development for confidential technology prototypes,
+            establishing software guidelines and constructing integrated software solutions
+            encompassing kernel-level design and userspace integration.}
+        \resumeItem{}
+           {Devised a plan, analyzed, and develop approaches to improve the overall system health of the
+            Camera system software for Pixel devices:
+            \resumeItemListStart
+            \resumeItem{}{Integrated an internal data processing pipeline which processes Perfetto trace files
+            and dashboard to automatically display performance metrics of several parts of
+            the camera pipeline.}
+            \resumeItem{}{Improved the memory allocation-deallocation pattern in one of our processing pipeline,
+            from allocating 300MiB per single frame processing to only 4MiB.}
+            \resumeItem{}{Designed and implemented a system for performance telemetry for continuous camera streaming,
+            using reservoir sampling algorithm to further reduce the memory consumption.}
+            \resumeItemListEnd
+            
+          }
+        % \resumeItem{Pixel early camera module bring-up}
+        %   {Responsible for the bringup process of various camera peripherals for Google Pixel
+        %    7/8/9 series, this includes the EEPROM, PMIC device drivers and the Linux device
+        %    tree definitions (power sequence, I$^2$C bus configuration).}
+        % \resumeItem{Pixel Zoom Experience Improvement}
+        %   {Designed, and implemented the first version of API implementation for
+        %    Camera2 API request settings override. achieved 1 frame zoom latency
+        %    improvement in 30FPS streaming (33.3ms).}
+        % \resumeItem{Testing}
+        %   {Developed end-to-end use case test suites in Java to proactively
+        %    identify and mitigate potential regressions during early development stages.}
+        % \resumeItem{JPEG compression}
+        %   {Improved the performance of our JPEG compression pipeline (libjpeg) through tweaking the
+        %    process affinity and core clocks. Reduced JPEG compression time from 80ms to 40ms,
+        %    enabling faster image output for third party consumer applications.}
+        % \resumeItem{Pixel Face Unblur}
+        %   {Reduced the CPU power usage by around 100mW by reviewing the pipeline and eliminating
+        %    unnecessary CPU processings steps. This means more efficient performance and extended
+        %    battery life for users.}
+        % \resumeItem{Hardware data sampling}
+        %   {Implemented a lens position sampling from hardware, as part of image processing
+        %    algorithm quality improvements.}
+        % \resumeItem{Development workflow improvement}
+        %   {Introduced an improvement to the bring-up workflow by doing a remote bringup
+        %    using SSH through the factory servers located outside Taiwan. This not only
+        %    gained recognition from leadership but also delivered cost savings by eliminating
+        %    the need for in-person travel.}
+        % \resumeItem{\href{https://blog.google/products/pixel/super-res-zoom-google-pixel/}{Pixel Super Res Zoom}}
+        %   {Built a scalable infrastructure for image processing algorithms to fetch on device
+        %    calibration data stored in EEPROM, and the infrastructure of multi camera
+        %    streaming pipeline. The design is still used in current generation Pixel camera HALs.}
+        % \resumeItem{Pixel 15x Zoom}
+        %   {Designed, and provided the infrastructure to let the application get the wider FOV
+        %    preview with image stabilization to help users point the camera on high level zoom.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Center of Computer Science, University of Indonesia}{Depok, Indonesia}
+      {Software Engineering Intern}{Jan 2020 - Feb 2020}
+      \resumeItemListStart
+      \resumeItem{Technologies}{Java, Java Spring, OAuth, Apereo CAS, Python, Django}
+        \resumeItem{}
+          {Created a Java Spring project starter template that supports user and role management
+           and authentication through multiple OAuth providers (Google, Facebook, Twitter, etc),
+           including university's single sign on system out of the box.}
+        \resumeItem{}{Created an interface for Apereo CAS (Java) to verify user credentials stored in database managed by Django administration.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Google}{Singapore}
+      {Software Engineering Intern, Google Pay}{June 2019 - Aug 2019}
+      \resumeItemListStart
+      \resumeItem{Technologies}{Android, Dagger, Java}
+      % \resumeItem{}
+      % {The internship spans around 3 months of doing a single project.
+      %  The team was focused on GPay India Merchant application using Java
+      %  with an in-house framework designed for low performance Android phones.}
+      \resumeItem{}
+        {Designed and implemented an experience improvement to the merchant onboarding process
+        by letting merchants scan their PAN card (Indian Tax ID) and autofills the form using OCR.}
+      \resumeItemListEnd
+
+  \resumeSubheading
+      {Qlapa}{Jakarta, Indonesia}
+      {Software Engineering Intern}{June 2017 - Aug 2017, June 2018 - Aug 2018}
+      \resumeItemListStart
+      \resumeItem{Technologies}{Java, Java Play Framework, Scala, Elasticsearch, Redis, Apache Airflow, MySQL, phpMyAdmin, Python, pandas, numpy, pyplot}
+      \resumeItem{}{Introduced Apache Airflow for the first time in the system for ETL purposes.}
+      \resumeItem{}{Extended the product's discount system to support shipping discount on top of product discount.}
+      \resumeItem{}{Implemented the new design for the merchant's product creation page.}
+      \resumeItem{}{Improved the server backend system's health by introducing bugfixes and refactors.}
+      \resumeItemListEnd
+  
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------------
+\section{Personal Side Project}
+\resumeSubHeadingListStart
+  \resumeSubItem{\href{https://github.com/firmanhp/osdev}{\color{blue}OSDev}}
+    {An ongoing toy bare metal program running on Raspberry Pi 3 Model B (AArch64),
+     as part of exploring the Rust programming language. Currently
+     implemented basic hardware feature support like UART, GPIO, ARM Mailboxes.
+     Utilized debugging using QEMU, GDB, objdump, and a little bit of Ghidra. Features
+     being explored include interrupts, virtual memory, and graphics output.
+     Project logs are documented in \href{https://firmanhp.com/blog}{\color{blue}personal blog} and inside
+     the respository.}
+  % \resumeSubItem{\href{https://firmanhp.com/blog}{\color{blue}Personal Blog}}
+  %    {Personal blog built using Github Pages, and Jekyll.}
+\resumeSubHeadingListEnd
+
+%
+%--------PROGRAMMING SKILLS------------
+\section{Programming Skills}
+\resumeSubHeadingListStart
+  \resumeSubItem{Languages}{C++, Rust, Java, Python, Javascript, SQL}
+  \resumeSubItem{Technologies}{Linux, Android, Cargo, PostgreSQL, MySQL, Django,
+   ExpressJS, OAuth, Apereo CAS, Dagger, Java Play Framework, Elasticsearch, Redis, Apache Airflow,
+   MySQL, phpMyAdmin, pandas, numpy, pyplot, Android Native, Perfetto, perf/simpleperf, Soong, Bazel,
+   I$^2$C/I$^3$C, QEMU, GDB, objdump, Ghidra, ARM (AArch64)}
+\resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University of Indonesia}{Indonesia}
+      {Bachelor of Science in Computer Science;  GPA: 3.95 / 4.00}{Aug. 2016 -- Aug. 2020}
+    \resumeItemListStart
+      \resumeItem{Notable courses taken}{Information Retrieval, Machine Learning, Data Science \& Analytics,
+        Numerical Analysis, Competitive Programming, Operating Systems, Systems Programming}
+      \resumeItem{Extracurricular activities}{Part of RISTEK (students club focusing on
+        specific competitive subjects) in Competitive Programming, and Data Science}
+      \resumeItem{Event committee}{Part of committee on several student-held events such as CompFest 9, CompFest X.
+        CompFest is the largest student-held computer event in Indonesia}
+      \resumeItem{}
+        {Participated in several competitive programming contests, mainly ACM-ICPC (now called ICPC):
+        \resumeItemListStart
+            \resumeItem{Fourth place}{Compfest 8 Senior Competitive Programming Contest (team: FUS-Co-Dah!)}
+            \resumeItem{Fourth place}{Indonesia National Contest 2017 (team: semoga ayas juara)}
+            \resumeItem{Honorable mention}{2017 ACM-ICPC Asia Jakarta (team: semoga ayas juara)}
+            \resumeItem{7th Place}{2017 ACM-ICPC Asia Ho Chi Minh City (team: semoga ayas juara)}
+            \resumeItem{National Gold Medalist}{2018 ACM-ICPC Asia Jakarta (team: semoga ayas juara versi tiga titik nol nol)}
+            \resumeItem{Honorable mention}{2018 ACM-ICPC Asia Nakhon Pathom (team: semoga ayas juara versi tiga titik nol nol)}
+            \resumeItem{10th Place}{Indonesia National Contest 2019 (team: TI Slayer)}
+            \resumeItem{Second Place}{Competitive Programming Arkavidia 5.0 (team: SELAMAT BERTANDING, JUNJUNG TINGGI SPORTIVITAS)}
+            \resumeItem{National Silver Medalist}{2019 ACM-ICPC Asia Jakarta (team: TI Slayer)}
+            \resumeItem{Fourth place}{Compfest 11 Senior Competitive Programming Contest (team: \{n, a, m, r, o, n\}*)}
+            
+            \resumeItemListEnd
+        }
+          
+    \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+
+
+%-------------------------------------------
+\end{document}
