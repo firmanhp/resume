@@ -78,20 +78,39 @@
 
 %----------HEADING-----------------
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-  \textbf{\href{https://firmanhp.com/blog/}{\Large Firman Hadi Prayoga}} & Email : firmanhp.91 at gmail dot com\\
-  % \href{https://firmanhp.com/blog}{https://firmanhp.com/blog} \\
+  \textbf{\href{https://firmanhp.com/blog/}{\Large Firman Hadi Prayoga}} & Email: firmanhp.91 at gmail dot com\\
+  \href{https://firmanhp.com/blog}{https://firmanhp.com/blog} \\
 \end{tabular*}
 
 %-----------EXPERIENCE-----------------
 \section{Experience}
   \resumeSubHeadingListStart
-
+    \resumeSubheading
+      {Rapsodo}{Singapore}
+      {Senior Software Engineer}{Jan 2026 - Present}
+      \resumeItemListStart
+      \resumeItem{Technologies}{Linux, C++17/20, Iceoryx IPC, Buildroot, Breakpad, LVGL}
+        \resumeItem{}{Owned the end to end system integration of an upcoming sports analytics hardware aimed for baseball players.}
+        \resumeItem{}{Implemented the LCD screens on the device using LVGL.}
+        \resumeItem{}{Diagnosed silent memory leaks and identified CPU-hogging threads via heap profiling, resolving stability and performance regressions.}
+        \resumeItem{}{Brought up the performance profiling ecosystem (Linux perf, Perfetto) for the software stack.}
+        \resumeItem{}{Built several tools to improve developer experience in the company:
+          \resumeItemListStart
+            \resumeItem{}{\href{https://github.com/firmanhp/sysprop}{\color{blue}sysprop}: Runtime/persistent
+                          global scope system properties storage, to easily modify program behavior without having to recompile or
+                          restarting the service.}
+            \resumeItem{}{\href{https://github.com/firmanhp/crashomon}{\color{blue}crashomon}: An out-of-process offline
+                          crash monitoring and reporting ecosystem which wraps Google Crashpad to produce crash minidumps to
+                          be pulled from the device later for developer analysis.}
+          \resumeItemListEnd
+        }
+      \resumeItemListEnd
     \resumeSubheading
       {Google}{New Taipei City, Taiwan}
-      {Senior Software Engineer, Pixel Camera System Software}{Feb 2021 - Present}
+      {Senior Software Engineer, Pixel Camera System Software}{Feb 2021 - Dec 2025}
       \resumeItemListStart
         \resumeItem{Technologies}
-          {Android Native, Linux kernel, Perfetto, perf/simpleperf, C++, Java, Soong, Bazel,
+          {Android Native, Linux kernel, Perfetto, perf/simpleperf, C++17/20, Java, Soong, Bazel,
            I$^2$C/I$^3$C}
         % \resumeItem{}
         %   {Recognized internally for proactively supporting team's code quality by conducting
@@ -99,34 +118,33 @@
         %    best practices. Mentored several newcomers on the development workflow.}
         \resumeItem{}
           {Collaborated with cross-functional teams to deliver multiple features in
-          unified Camera HAL for Tensor SoCs:
+          unified Camera HAL for Google Tensor SoCs:
             \resumeItemListStart
-            \resumeItem{}{Image Stabilization (Implemented hardware lens position data sampling to improve the algorithm's accuracy.)}
+            % \resumeItem{}{Image Stabilization (Implemented hardware lens position data sampling to improve the algorithm's accuracy.)}
             \resumeItem{}{Super Res Zoom (worked on calibration data infrastructure and image stabilization experience on high zoom),}
-            \resumeItem{}{Face Unblur (Reduced CPU power usage by 100mW, extending battery life),}
-            \resumeItem{}{Camera2 Settings override API (boosted the zoom experience latency by 1 frame = 33.3ms),}
-            \resumeItem{}{Third party camera support (improved the JPEG compression time from 80ms to 40ms),}
-            \resumeItem{}{and many other features TBA.}
+            \resumeItem{}{Face Unblur (reduced CPU power usage by 100mW by cutting off unnecessary calculations, extending battery life),}
+            \resumeItem{}{Camera2 Settings override API (reduced zoom experience latency by 1 frame = 33.3ms),}
+            \resumeItem{}{Third party camera support (improved the JPEG compression time from 80ms to 40ms via scheduler tuning),}
+            \resumeItem{}{Dual camera concurrent streaming (designed the support pipeline infrastructure to support two cameras streaming at 10FPS/30FPS)}
             \resumeItemListEnd
            }
         \resumeItem{}
-          {Was responsible for the software driver design, Linux device tree definitions, power sequences,
-           for early bring-up of camera hardware modules for Pixel devices, including experimental devices.}
+          {Owned software driver design, Linux device tree definitions, and power sequences
+           for early bring-up of camera hardware modules on Pixel devices, including experimental hardware.}
         \resumeItem{}
            {Directed cross-layer software development for confidential technology prototypes,
             establishing software guidelines and constructing integrated software solutions
             encompassing kernel-level design and userspace integration.}
         \resumeItem{}
-           {Devised a plan, analyzed, and develop approaches to improve the overall system health of the
-            Camera system software for Pixel devices:
+           {Drove system health improvements across the Camera software stack:
             \resumeItemListStart
-            \resumeItem{}{Integrated an internal data processing pipeline which processes Perfetto trace files
-            and dashboard to automatically display performance metrics of several parts of
-            the camera pipeline.}
-            \resumeItem{}{Improved the memory allocation-deallocation pattern in one of our processing pipeline,
-            from allocating 300MiB per single frame processing to only 4MiB.}
-            \resumeItem{}{Designed and implemented a system for performance telemetry for continuous camera streaming,
-            using reservoir sampling algorithm to further reduce the memory consumption.}
+            \resumeItem{}{Built an automated Perfetto trace ingestion and metrics dashboard pipeline, allowing systematic
+            latency regression detection across camera pipeline stages.}
+            \resumeItem{}{Improved the memory allocation-deallocation pattern in one of our processing pipelines, reducing
+            per-frame memory from 300MiB to 4MiB by reusing memory segments.}
+            \resumeItem{}{Designed a low-overhead continuous performance telemetry system using reservoir sampling
+            to bound memory usage at runtime, enabling always-on latency monitoring without impacting the streaming
+            pipeline.}
             \resumeItemListEnd
             
           }
@@ -170,45 +188,60 @@
       {Center of Computer Science, University of Indonesia}{Depok, Indonesia}
       {Software Engineering Intern}{Jan 2020 - Feb 2020}
       \resumeItemListStart
-      \resumeItem{Technologies}{Java, Java Spring, OAuth, Apereo CAS, Python, Django}
-        \resumeItem{}
-          {Created a Java Spring project starter template that supports user and role management
-           and authentication through multiple OAuth providers (Google, Facebook, Twitter, etc),
-           including university's single sign on system out of the box.}
-        \resumeItem{}{Created an interface for Apereo CAS (Java) to verify user credentials stored in database managed by Django administration.}
+      % \resumeItem{Technologies}{Java, Java Spring, OAuth, Apereo CAS, Python, Django}
+      % \resumeItem{}
+      %   {Built a Java Spring project starter template that supports user and role management
+      %     and authentication through multiple OAuth providers (Google, Facebook, Twitter, etc),
+      %     including university's single sign on system out of the box.}
+      % \resumeItem{}{Created an interface for Apereo CAS (Java) to verify user credentials stored in database managed by Django administration.}
+      \resumeItem{}{Built a Java Spring template with multi-provider OAuth support and integrated Apereo CAS for credential verification against a Django-managed database.}
       \resumeItemListEnd
 
     \resumeSubheading
       {Google}{Singapore}
       {Software Engineering Intern, Google Pay}{June 2019 - Aug 2019}
       \resumeItemListStart
-      \resumeItem{Technologies}{Android, Dagger, Java}
+      % \resumeItem{Technologies}{Android, Dagger, Java}
       % \resumeItem{}
       % {The internship spans around 3 months of doing a single project.
       %  The team was focused on GPay India Merchant application using Java
       %  with an in-house framework designed for low performance Android phones.}
-      \resumeItem{}
-        {Designed and implemented an experience improvement to the merchant onboarding process
-        by letting merchants scan their PAN card (Indian Tax ID) and autofills the form using OCR.}
+      % \resumeItem{}
+      %   {Designed and implemented an experience improvement to the merchant onboarding process
+      %   by letting merchants scan their PAN card (Indian Tax ID) and autofills the form using OCR.}
+      \resumeItem{}{Designed and implemented a PAN card OCR feature to streamline merchant onboarding on Google Pay Android.}
       \resumeItemListEnd
 
   \resumeSubheading
       {Qlapa}{Jakarta, Indonesia}
       {Software Engineering Intern}{June 2017 - Aug 2017, June 2018 - Aug 2018}
       \resumeItemListStart
-      \resumeItem{Technologies}{Java, Java Play Framework, Scala, Elasticsearch, Redis, Apache Airflow, MySQL, phpMyAdmin, Python, pandas, numpy, pyplot}
-      \resumeItem{}{Introduced Apache Airflow for the first time in the system for ETL purposes.}
-      \resumeItem{}{Extended the product's discount system to support shipping discount on top of product discount.}
-      \resumeItem{}{Implemented the new design for the merchant's product creation page.}
-      \resumeItem{}{Improved the server backend system's health by introducing bugfixes and refactors.}
+      % \resumeItem{Technologies}{Java, Java Play Framework, Scala, Elasticsearch, Redis, Apache Airflow, MySQL, phpMyAdmin, Python, pandas, numpy, pyplot}
+      % \resumeItem{}{Introduced Apache Airflow for the first time in the system for ETL purposes.}
+      % \resumeItem{}{Extended the product's discount system to support shipping discount on top of product discount.}
+      % \resumeItem{}{Implemented the new design for the merchant's product creation page.}
+      % \resumeItem{}{Improved the server backend system's health by introducing bugfixes and refactors.}
+      \resumeItem{}{Introduced Apache Airflow for ETL pipelines; extended discount system and improved backend health via bugfixes and refactors.}
       \resumeItemListEnd
   
   \resumeSubHeadingListEnd
 
 
 %-----------PROJECTS-----------------
-\section{Personal Side Project}
+\section{Personal Side Projects}
 \resumeSubHeadingListStart
+  \resumeSubItem{\href{https://github.com/firmanhp/sysprop}{\color{blue}sysprop}}
+    {Android-inspired, Linux-based runtime/persistent system properties storage, to easily modify program
+     behavior without having to recompile or restarting the service. Useful to hide features under
+     development or testing before officially releasing. Written in C++20.}
+  \resumeSubItem{\href{https://github.com/firmanhp/crashomon}{\color{blue}crashomon}}
+    {An offline based crash reporting ecosystem based on Google Crashpad and Breakpad, consisting of three main tools:
+     Client, Watcher, and Analyzer. A crashing process will produce a small minidump (hundreds of KBs) in which
+     stack can be traced using the Analyzer tool. The minidump produced is magnitudes smaller than a Linux coredump so it can
+     be manually pulled to the cloud for developer analysis. Written in both C++20 and Python.}
+  \resumeSubItem{\href{https://github.com/firmanhp/anthropic_original_performance_takehome}{\color{blue}Anthropic's performance take home test}}
+    {Optimized a program running on a toy VLIW ISA, minimizing CPU cycles. Hand-tuned instruction sequences and built a systematic instruction scheduler,
+     achieving 71x speedup (147,000 → 2,044 cycles).}
   \resumeSubItem{\href{https://github.com/firmanhp/osdev}{\color{blue}OSDev}}
     {An ongoing toy bare metal program running on Raspberry Pi 3 Model B (AArch64),
      as part of exploring the Rust programming language. Currently
@@ -216,9 +249,9 @@
      Utilized debugging using QEMU, GDB, objdump, and a little bit of Ghidra. Features
      being explored include interrupts, virtual memory, and graphics output.
      Project logs are documented in \href{https://firmanhp.com/blog}{\color{blue}personal blog} and inside
-     the respository.}
+     the repository.}
   % \resumeSubItem{\href{https://firmanhp.com/blog}{\color{blue}Personal Blog}}
-  %    {Personal blog built using Github Pages, and Jekyll.}
+  %    {Personal blog built using NextJS static web pages.}
 \resumeSubHeadingListEnd
 
 %
@@ -226,10 +259,41 @@
 \section{Programming Skills}
 \resumeSubHeadingListStart
   \resumeSubItem{Languages}{C++, Rust, Java, Python, Javascript, SQL}
-  \resumeSubItem{Technologies}{Linux, Android, Cargo, PostgreSQL, MySQL, Django,
-   ExpressJS, OAuth, Apereo CAS, Dagger, Java Play Framework, Elasticsearch, Redis, Apache Airflow,
-   MySQL, phpMyAdmin, pandas, numpy, pyplot, Android Native, Perfetto, perf/simpleperf, Soong, Bazel,
-   I$^2$C/I$^3$C, QEMU, GDB, objdump, Ghidra, ARM (AArch64)}
+  \resumeSubItem{Technologies}{
+    Linux,
+    Android,
+    Cargo,
+    PostgreSQL,
+    MySQL,
+    Django,
+    ExpressJS,
+    OAuth,
+    % Apereo CAS,
+    % Dagger,
+    % Java Play Framework,
+    Elasticsearch,
+    Redis,
+    Apache Airflow,
+    % phpMyAdmin,
+    pandas,
+    numpy,
+    % pyplot,
+    Android Native,
+    Perfetto,
+    perf/simpleperf,
+    Soong,
+    Bazel,
+    I$^2$C/I$^3$C,
+    QEMU,
+    GDB,
+    objdump,
+    Ghidra,
+    ARM (AArch64),
+    Buildroot,
+    Iceoryx IPC,
+    Breakpad,
+    LVGL
+  }
 \resumeSubHeadingListEnd
 
 %-----------EDUCATION-----------------
@@ -243,22 +307,21 @@
         Numerical Analysis, Competitive Programming, Operating Systems, Systems Programming}
       \resumeItem{Extracurricular activities}{Part of RISTEK (students club focusing on
         specific competitive subjects) in Competitive Programming, and Data Science}
-      \resumeItem{Event committee}{Part of committee on several student-held events such as CompFest 9, CompFest X.
-        CompFest is the largest student-held computer event in Indonesia}
+      % \resumeItem{Event committee}{Part of committee on several student-held events such as CompFest 9, CompFest X.
+      %   CompFest is the largest student-held computer event in Indonesia}
       \resumeItem{}
         {Participated in several competitive programming contests, mainly ACM-ICPC (now called ICPC):
         \resumeItemListStart
-            \resumeItem{Fourth place}{Compfest 8 Senior Competitive Programming Contest (team: FUS-Co-Dah!)}
-            \resumeItem{Fourth place}{Indonesia National Contest 2017 (team: semoga ayas juara)}
-            \resumeItem{Honorable mention}{2017 ACM-ICPC Asia Jakarta (team: semoga ayas juara)}
-            \resumeItem{7th Place}{2017 ACM-ICPC Asia Ho Chi Minh City (team: semoga ayas juara)}
-            \resumeItem{National Gold Medalist}{2018 ACM-ICPC Asia Jakarta (team: semoga ayas juara versi tiga titik nol nol)}
-            \resumeItem{Honorable mention}{2018 ACM-ICPC Asia Nakhon Pathom (team: semoga ayas juara versi tiga titik nol nol)}
-            \resumeItem{10th Place}{Indonesia National Contest 2019 (team: TI Slayer)}
-            \resumeItem{Second Place}{Competitive Programming Arkavidia 5.0 (team: SELAMAT BERTANDING, JUNJUNG TINGGI SPORTIVITAS)}
-            \resumeItem{National Silver Medalist}{2019 ACM-ICPC Asia Jakarta (team: TI Slayer)}
-            \resumeItem{Fourth place}{Compfest 11 Senior Competitive Programming Contest (team: \{n, a, m, r, o, n\}*)}
-            
+            \resumeItem{National Gold Medalist}{2018 ACM-ICPC Asia Jakarta}
+            \resumeItem{National Silver Medalist}{2019 ACM-ICPC Asia Jakarta}
+            \resumeItem{7th Place}{2017 ACM-ICPC Asia Ho Chi Minh City}
+            \resumeItem{Honorable mention}{2017 ACM-ICPC Asia Jakarta}
+            \resumeItem{Honorable mention}{2018 ACM-ICPC Asia Nakhon Pathom}
+            \resumeItem{Fourth place}{Indonesia National Contest 2017}
+            \resumeItem{10th Place}{Indonesia National Contest 2019}
+            \resumeItem{Second Place}{Competitive Programming Arkavidia 5.0}
+            \resumeItem{Fourth place}{Compfest 8 Senior Competitive Programming Contest}
+            \resumeItem{Fourth place}{Compfest 11 Senior Competitive Programming Contest}
             \resumeItemListEnd
         }
           
